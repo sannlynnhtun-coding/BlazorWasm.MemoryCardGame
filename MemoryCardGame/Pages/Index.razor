@@ -1,0 +1,39 @@
+﻿@page "/"
+@inject IJSRuntime _JsRuntime
+
+<PageTitle>Index</PageTitle>
+@if (startGame)
+{
+    <div class="wrapper">
+        <div class="stats-container">
+            <div class="game-font moves">
+                Your score : @moves
+            </div>
+        </div>
+        @if (gameOver)
+        {
+            <p class="game-font status">You won in @moves moves!</p>
+        }
+        <div class="game-container" style="grid-template-columns: repeat(4, auto);">
+            @foreach (int i in intArr)
+            {
+                var card = cards[i - 1];
+                <div class="card-container @card.CssSelected @card.CssFlipped"
+             @onclick="() => CardClick(card)">
+                    <div class="card-before">?</div>
+                    <div class="card-after">
+                        <img src="img/@(card.Image)" class="image" />
+                    </div>
+                </div>
+            }
+        </div>
+        <button id="stop" @onclick=Stop class="hide">Stop Game</button>
+    </div>
+}
+else
+{
+    <div class="controls-container">
+        <p id="result"></p>
+        <button id="start" @onclick="Start">Start Game</button>
+    </div>
+}
