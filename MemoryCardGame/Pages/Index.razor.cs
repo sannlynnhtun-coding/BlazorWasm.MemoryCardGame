@@ -104,13 +104,9 @@ public partial class Index
             {
                 cards.First(c => c.Id == selectedCards[0]).IsMatched = true;
                 cards.First(c => c.Id == selectedCards[1]).IsMatched = true;
-                if (cards.All(c => c.IsMatched))
-                {
-                    gameOver = true;
-                }
+                gameOver = cards.All(c => c.IsMatched);
             }
             selectedCards = new int[2];
-
             selectedCardCount = 0;
         }
         isClicked = false;
