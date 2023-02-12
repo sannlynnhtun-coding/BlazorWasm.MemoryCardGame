@@ -21,6 +21,7 @@ public partial class Index
     async Task Start()
     {
         isClicked = true;
+        gameOver = false;
         var tempCards = new List<MemoryCardGameModel>()
         {
             new MemoryCardGameModel() { Value = "bee", Image = "bee.png" },
