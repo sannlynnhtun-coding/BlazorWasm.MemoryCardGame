@@ -95,7 +95,12 @@ public partial class Index
 
             var card1 = cards.First(c => c.Id == selectedCards[0]);
             var card2 = cards.First(c => c.Id == selectedCards[1]);
-            if (card1.Value == card2.Value)
+            if (card1.Value != card2.Value)
+            {
+                cards.First(c => c.Id == selectedCards[0]).IsSelected = false;
+                cards.First(c => c.Id == selectedCards[1]).IsSelected = false;
+            }
+            else
             {
                 cards.First(c => c.Id == selectedCards[0]).IsMatched = true;
                 cards.First(c => c.Id == selectedCards[1]).IsMatched = true;
@@ -103,11 +108,6 @@ public partial class Index
                 {
                     gameOver = true;
                 }
-            }
-            else
-            {
-                cards.First(c => c.Id == selectedCards[0]).IsSelected = false;
-                cards.First(c => c.Id == selectedCards[1]).IsSelected = false;
             }
             selectedCards = new int[2];
 
