@@ -13,11 +13,6 @@ public partial class Index
     private bool gameOver = false;
     private bool isClicked = true;
 
-    protected override void OnInitialized()
-    {
-
-    }
-
     async Task Start()
     {
         isClicked = true;
