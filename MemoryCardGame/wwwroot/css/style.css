@@ -161,7 +161,8 @@ button {
     }
 
 p.status {
-    padding: 10px 0px;
+    padding: 0px 0px 10px;
+    text-align: center;
 }
 
 .moves {
